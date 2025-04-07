@@ -1,3 +1,8 @@
+body
+{
+  background: linear-gradient(90deg , #202020, #0a090a);
+}
+
 header {
     display: flex;
     justify-content: flex-start;
@@ -51,6 +56,7 @@ h1
   text-align: left;
   padding-left: 10px;
   font-size: 15px;
+  background-color: #88a9a4;
 }
 
 #note-content
@@ -61,13 +67,13 @@ h1
   padding-left: 10px;
   font-size: 15px;
   resize: none;
+  background-color: #88a9a4;
 }
 
 #add-note
 {
   background-color: #88a9a4;
   margin-top: 10px;
-  color: white;
   width: 60px;
   height: 20px;
 }
