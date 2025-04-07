@@ -1,0 +1,21 @@
+{
+  "name": "logowanie",
+  "version": "1.0.0",
+  "description": "Aplikacja do logowania",
+  "main": "backend/app.js",
+  "scripts": {
+    "start": "node backend/app.js",
+    "frontend": "live-server frontend --port=3000"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login i Rejestracja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Strona Logowania i Rejestracji</h1>
+
+        <!-- Formularz rejestracji -->
+        <div class="form-container">
+            <h2>Rejestracja</h2>
+            <form id="register-form">
+                <input type="text" id="username-register" autocomplete="off" placeholder="Nazwa użytkownika" required>
+                <input type="password" id="password-register" autocomplete="off" placeholder="Hasło" required>
+                <button type="submit">Zarejestruj się</button>
+            </form>
+        </div>
+
+        <!-- Formularz logowania -->
+        <div class="form-container">
+            <h2>Logowanie</h2>
+            <form id="login-form">
+                <input type="text" id="username-login" autocomplete="off" placeholder="Nazwa użytkownika" required>
+                <input type="password" id="password-login" autocomplete="off" placeholder="Hasło" required>
+                <button type="submit">Zaloguj się</button>
+            </form>
+        </div>
+
+        <p id="message"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

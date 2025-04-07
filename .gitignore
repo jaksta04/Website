@@ -1,0 +1,16 @@
+# node_modules - nie śledź paczek
+node_modules/
+
+# środowisko
+.env
+
+# build output
+dist/
+build/
+
+# logi
+*.log
+
+# systemowe
+.DS_Store
+Thumbs.db

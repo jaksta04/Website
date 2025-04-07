@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona główna</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Strona z różnymi rzeczami - Witamy!</h1>
+            
+            <div id="zegar">00:00:00</div>
+
+        </header>
+
+        <div id="content">
+            <div class="left-panel">
+                <input type="text" id="note-title" placeholder="Tytuł notatki" />
+                <textarea id="note-content" placeholder="Treść notatki"></textarea>
+                <button id="add-note">Dodaj</button>
+            </div>
+
+            <div class="right-panel">
+                <h3>Twoje notatki</h3>
+                <ul id="notes-list"></ul>
+            </div>
+
+        </div>
+
+        <div id="display-note"></div>
+        
+    </div>
+
+
+      <script src="script.js"></script>
+    
+</body>
+</html>

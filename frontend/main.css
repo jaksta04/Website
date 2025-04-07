@@ -1,0 +1,74 @@
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; /* Wyrównuje elementy w pionie (na tej samej wysokości) */
+  }
+
+
+h1
+{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding: 20px;
+    margin-left: 50px;
+    background: linear-gradient(90deg, #3cad9e, #7810df);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+  
+#zegar {
+    font-size: 36px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding: 20px;
+    margin-left: 500px;
+    background: linear-gradient(90deg, #7810df, #3cad9e);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+#content
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-panel, .right-panel
+{
+  width: 30%;
+}
+
+.left-panel
+{
+  margin-left: 100px;
+  
+}
+
+#note-title
+{
+  width: 200px;
+  height: 30px;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 15px;
+}
+
+#note-content
+{
+  width: 500px;
+  height: 500px;
+  margin-top: 10px;
+  padding-left: 10px;
+  font-size: 15px;
+  resize: none;
+}
+
+#add-note
+{
+  background-color: #88a9a4;
+  margin-top: 10px;
+  color: white;
+  width: 60px;
+  height: 20px;
+}
+  
