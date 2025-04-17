@@ -3,6 +3,10 @@
     "id": 1,
     "username": "kuba",
     "password": "$2a$10$LXC7WeBTOyVceS4cMPMDe.ZYaCMj2SCWbB/B3xB/booajbWrncQFC"
+  },
+  {
+    "id": 2,
+    "username": "kubus",
+    "password": "$2a$10$GIUGe1UZubGvYM9oD.LvsOinQACVt1tk38ngWWaoXGdB6pyEgLgae"
   }
-  
 ]

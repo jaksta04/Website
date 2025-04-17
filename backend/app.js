@@ -1,27 +1,30 @@
 const fs = require("fs");
 const express = require("express");
-const bodyParser = require("body-parser");
 const bcrypt = require("bcryptjs");
-const app = express();
-const cors = require('cors');
-
 const path = require("path");
-
-
-
 const jwt = require("jsonwebtoken");
-const SECRET_KEY = "tajny_klucz"; // w realnym projekcie trzymaj to w .env
+const cookieParser = require("cookie-parser");
+const dotenv = require('dotenv');
+require('dotenv').config({path: "../.env"});
 
 
+const app = express();
+app.use(cookieParser());
 
+const cors = require('cors');
+const { error } = require("console");
 app.use(cors({
-  origin: ["http://localhost:3000", "http://127.0.0.1:3000"],  // Pozwól na zapytania tylko z tych origin
-  credentials: true,  // Umożliwia wysyłanie ciasteczek (cookies) i tokenów
-  allowedHeaders: ['Content-Type', 'Authorization'],  // Zezwala na nagłówki typu Authorization
-  methods: ['GET', 'POST', 'PUT', 'DELETE']  // Określa dozwolone metody
+  origin: 'http://localhost:5000',
+  credentials: true
 }));
 
+
+
+
 app.use(express.json()); 
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
+app.use(express.static(path.join(__dirname, '..', 'frontend','private')));
+
 
 
 
@@ -80,37 +83,69 @@ app.post("/login", async (req, res) => {
   }
 
   // Tworzenie tokena JWT
-  const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: "30s" });
+  const AccessToken = jwt.sign({ username }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "20s" });
 
-  console.log("Token wygenerowany:", token); // Logowanie tokena, aby upewnić się, że jest generowany
+  
+  console.log("Token wygenerowany:", AccessToken); 
 
-
-  res.status(200).json({ message: "Login successful!", token });
+ 
+  return res.cookie("Access_Token", AccessToken, {
+      httpOnly: true,
+      secure: false,
+      sameSite: 'lax', // Dodaj to
+    })
+    .status(200)
+    .json({ message: "Logged in successfully" });
 });
 
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
 
-  if (!token) return res.sendStatus(401); // brak tokena
+const authorization = (req, res, next) => {
+  const token = req.cookies.Access_Token;
+  if (!token) {
+    console.log('Brak tokena - przekierowanie do loginu');
+    return res.status(401).send("Unauthorized");
+  }
 
-  jwt.verify(token, SECRET_KEY, (err, user) => {
-    if (err) return res.sendStatus(403); // token nieprawidłowy
-    req.user = user;
-    next();
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+    if (err) {
+      console.log('Nieprawidłowy token:', err.message);
+      res.clearCookie('Access_Token');
+      return res.status(403).send("Forbidden");
+    }
+    
+    req.username = decoded.username;
+    next(); // Przekazujemy kontrolę bez wysyłania odpowiedzi
   });
 }
 
-app.get("/api/verify-auth", authenticateToken, (req, res) => {
-  res.json({ 
-    status: "authenticated",
-    user: req.user.username 
-  });
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'frontend','index.html'));
 });
 
-app.get("/main", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "main.html"));
+
+
+
+app.get('/verify', authorization, (req, res) => {
+  console.log('Session is active');
+  res.status(200).json({ message: 'Session is active' });
 });
+
+
+
+
+app.get("/main", authorization, (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'frontend','private','main.html'));
+
+});
+
+app.get("/logout", authorization, (req, res) => {
+  return res
+    .clearCookie("access_token")
+    .status(200)
+    .json({ message: "Successfully logged out" });
+});
+
+
 
 
 // Uruchamiamy serwer

@@ -43,6 +43,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
             headers: {
                 "Content-Type": "application/json"
             },
+            credentials: 'include',
             body: JSON.stringify({ username, password })
         });
 
@@ -51,16 +52,14 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
             document.getElementById("message").textContent = data.message;
             document.getElementById("message").style.color = "green";
 
-            localStorage.setItem("token", data.token); // zapisz token
-
-            console.log("Zapisany token:", localStorage.getItem("token")); // Logowanie zapisania tokena
-
 
             // Poczekaj 1 sekundę i przekieruj na main.html
             setTimeout(() => {
-                window.location.href = "main.html";
-                }, 1000);
-        } 
+                window.location.href = "/main";
+            
+            }, 1000);
+        }
+         
         
         else {
             document.getElementById("message").textContent = data.message;

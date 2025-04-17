@@ -1,30 +1,24 @@
-async function checkAuth() {
-    const token = localStorage.getItem("token");
-    if (!token) {
-        window.location.href = "index.html";
-        return;
+
+function checkSession() {
+  fetch('/verify', {
+    method: 'GET',
+    credentials: 'include',  // Używamy ciasteczek
+  })
+  .then(response => {
+    if (!response.ok) { 
+      window.location.href = '/';  // Przekierowanie na stronę logowania
     }
-
-    try {
-        const response = await fetch("http://localhost:5000/api/verify-auth", {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error("Unauthorized");
-        }
-        const data = await response.json();
-
-        console.log("Użytkownik zweryfikowany:", data.user); // "przyklad"
-    } catch (err) {
-        window.location.href = "index.html";
-    }
+  })
+  .catch(error => {
+    console.error('Error checking session:', error);
+    window.location.href = '/';  // Jeśli wystąpi błąd, przekierowanie na stronę logowania
+  });
 }
+// Wywołaj checkSession co 30 sekund
+setInterval(checkSession, 3000);  // Sprawdzanie sesji co 30 sekund
 
-checkAuth();
+
+
 
 
 

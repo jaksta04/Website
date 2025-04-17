@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background: linear-gradient(90deg, #121646, #1d4584);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +36,7 @@ input {
 button {
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #000000;
     color: white;
     border: none;
     border-radius: 4px;
@@ -44,7 +44,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #000000;
 }
 
 #message {
