@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejestracja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Strona Rejestracji</h1>
+
+        <!-- Formularz rejestracji -->
+        <div class="form-container">
+            <h2>Rejestracja</h2>
+            <form id="register-form">
+                <input type="text" id="username-register" autocomplete="off" placeholder="Nazwa użytkownika" required>
+                <input type="password" id="password-register" autocomplete="off" placeholder="Hasło" required>
+                <button id="submit" type="submit">Zarejestruj się</button>
+            </form>
+        </div>
+
+        <a id="Go-to-login" href="index.html">Masz już konto? Zaloguj się</a>
+
+        <p id="message"></p>
+
+        <button id="GoTo">Przejdź do logowania</button>
+
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>

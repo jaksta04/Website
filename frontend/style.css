@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(90deg, #121646, #1d4584);
+    background: linear-gradient(90deg, #121646 0%, #19b981 50%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@ body {
     text-align: center;
 }
 
-h1 {
+h1,h2 {
     color: #333;
 }
 
@@ -26,9 +26,9 @@ h1 {
 }
 
 input {
-    width: 100%;
+    width: 280px;
     padding: 10px;
-    margin: 10px 0;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
@@ -44,7 +44,18 @@ button {
 }
 
 button:hover {
-    background-color: #000000;
+    background-color: #19b981;
+}
+
+a {
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    color: #19b981;
+}
+
+#GoTo
+{
+    display: none;
 }
 
 #message {

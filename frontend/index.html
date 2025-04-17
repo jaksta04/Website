@@ -3,22 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login i Rejestracja</title>
+    <title>Logowanie</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Strona Logowania i Rejestracji</h1>
+        <h1>Strona Logowania</h1>
 
-        <!-- Formularz rejestracji -->
-        <div class="form-container">
-            <h2>Rejestracja</h2>
-            <form id="register-form">
-                <input type="text" id="username-register" autocomplete="off" placeholder="Nazwa użytkownika" required>
-                <input type="password" id="password-register" autocomplete="off" placeholder="Hasło" required>
-                <button type="submit">Zarejestruj się</button>
-            </form>
-        </div>
 
         <!-- Formularz logowania -->
         <div class="form-container">
@@ -30,9 +21,11 @@
             </form>
         </div>
 
+        <a id="Go-to-register" href="register.html">Nie masz konta? Zarejestruj się</a>
+
         <p id="message"></p>
     </div>
 
-    <script src="script.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

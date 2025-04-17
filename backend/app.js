@@ -61,7 +61,7 @@ app.post("/register", async (req, res) => {
   // Zapisujemy użytkowników do pliku JSON
   fs.writeFileSync("users.json", JSON.stringify(users, null, 2));
 
-  res.status(201).json({ message: "User registered successfully!" });
+  res.status(201).json({ message: "Użytkownik zarejestrowany" });
 });
 
 // Logowanie użytkownika
@@ -83,7 +83,7 @@ app.post("/login", async (req, res) => {
   }
 
   // Tworzenie tokena JWT
-  const AccessToken = jwt.sign({ username }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "20s" });
+  const AccessToken = jwt.sign({ username }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "30m" });
 
   
   console.log("Token wygenerowany:", AccessToken); 
@@ -95,7 +95,7 @@ app.post("/login", async (req, res) => {
       sameSite: 'lax', // Dodaj to
     })
     .status(200)
-    .json({ message: "Logged in successfully" });
+    .json({ message: "Zalogowano pomyślnie" });
 });
 
 
