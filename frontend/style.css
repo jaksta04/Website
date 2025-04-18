@@ -53,6 +53,24 @@ a {
     color: #19b981;
 }
 
+#Go-to-register
+{
+    font-family: Arial, sans-serif;
+    width: auto;
+    padding: 0px;
+    background-color: #fff;
+    color: #19b981 ;
+}
+
+#Go-to-login
+{
+    font-family: Arial, sans-serif;
+    width: auto;
+    padding: 0px;
+    background-color: #fff;
+    color: #19b981 ;
+}
+
 #GoTo
 {
     display: none;

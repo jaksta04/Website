@@ -43,6 +43,10 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
     }
 });
 
+document.getElementById("Go-to-register").addEventListener("click", () => {
+    window.location.href = "/register";
+});
+
 
   
   

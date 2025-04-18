@@ -122,6 +122,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'frontend','index.html'));
 });
 
+app.get("/register",(req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'frontend','register.html'));
+
+});
 
 
 
@@ -132,18 +136,12 @@ app.get('/verify', authorization, (req, res) => {
 
 
 
-
 app.get("/main", authorization, (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'frontend','private','main.html'));
 
 });
 
-app.get("/logout", authorization, (req, res) => {
-  return res
-    .clearCookie("access_token")
-    .status(200)
-    .json({ message: "Successfully logged out" });
-});
+
 
 
 

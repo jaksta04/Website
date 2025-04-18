@@ -36,6 +36,11 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
     }
 });
 
+document.getElementById("Go-to-login").addEventListener("click", () => {
+    window.location.href = "/"; // Przekierowanie do strony logowania
+});
+
+
 document.getElementById("GoTo").addEventListener("click", () => {
-    window.location.href = "index.html"; // Przekierowanie do strony logowania
+    window.location.href = "/"; // Przekierowanie do strony logowania
 });

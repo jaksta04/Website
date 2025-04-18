@@ -15,7 +15,7 @@ function checkSession() {
   });
 }
 // Wywołaj checkSession co 30 sekund
-setInterval(checkSession, 3000);  // Sprawdzanie sesji co 30 sekund
+setInterval(checkSession, 120000);  // Sprawdzanie sesji co 30 sekund
 
 
 
