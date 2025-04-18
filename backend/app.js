@@ -141,6 +141,10 @@ app.get("/main", authorization, (req, res) => {
 
 });
 
+app.get("/Notatnik", (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'frontend','private','notatnik.html'));
+});
+
 
 
 

@@ -24,6 +24,8 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
             document.getElementById("username-login").value = ""; // Wyczyść pole
             document.getElementById("password-login").value = ""; 
 
+            document.getElementById("Go-to-register").style.display = "none"; // Ukryj formularz logowania
+
 
             // Poczekaj 1 sekundę i przekieruj na main.html
             setTimeout(() => {

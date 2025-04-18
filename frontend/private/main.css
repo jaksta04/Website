@@ -1,6 +1,6 @@
 body
 {
-  background: black;
+  background: rgb(46, 43, 43);
 }
 
 header {
@@ -30,6 +30,66 @@ h1
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+
+#Napis
+{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  padding: 20px;
+  font-size: 25px;
+  margin-left: 50px;
+  background: linear-gradient(90deg, #3cad9e, #7810df);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+
+#program
+{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  
+}
+
+#program ul
+{
+  display: flex;
+  list-style: none;
+  margin: 20px;
+  padding: 30px;
+  
+}
+ul li{
+  
+  margin: 20px;
+  
+}
+
+#program ul li button
+{
+  font-family:"Poetsen One", sans-serif;
+  background: linear-gradient(90deg, #3cad9e, #7810df);
+  border-radius:30px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 25px;
+  cursor: pointer;
+  border: 2px solid #0da4ae;
+}
+
+
+
+
+
+
+
+
+
 
 #content
 {

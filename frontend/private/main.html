@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strona główna</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../ikonka.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -16,19 +18,14 @@
 
         </header>
 
-        <div id="content">
-            <div class="left-panel">
-                <input type="text" id="note-title" placeholder="Tytuł notatki" />
-                <textarea id="note-content" placeholder="Treść notatki"></textarea>
-                <button id="add-note">Dodaj</button>
-            </div>
+        <p id="Napis">Wybierz co chcesz robić:</p>
 
-            <div class="right-panel">
-                <h3>Twoje notatki</h3>
-                <ul id="notes-list"></ul>
-            </div>
-
-        </div>
+        <nav id="program">
+            <ul>
+                <li><button id="Notatnik">Notatnik</button></li>
+                <li><button id="Tłumacz">Tłumacz</button></li>
+            </ul>
+        </nav>
 
         <div id="display-note"></div>
         
