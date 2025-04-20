@@ -41,3 +41,7 @@ document.getElementById("Notatnik").addEventListener("click", () => {
   });
   
 
+  document.getElementById("Tlumacz").addEventListener("click", () => {
+    window.location.href = "/Tlumacz";
+  });
+

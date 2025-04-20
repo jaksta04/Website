@@ -83,14 +83,6 @@ ul li{
 }
 
 
-
-
-
-
-
-
-
-
 #content
 {
   display: flex;
@@ -137,4 +129,37 @@ ul li{
   width: 60px;
   height: 20px;
 }
+
+.form
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px;
+}
+
+#input
+{
+  background-color: #10ae8c;
+  padding: 10px;
   
+}
+#output
+{
+  background-color: #10ae8c;
+  padding: 10px 10px 10px 0;
+  margin-left: 10px;
+}
+
+#input, #output, textarea
+{
+  color: black ;
+  font-size: 25px;
+  height: 200px;
+  width: 400px;
+  resize: none;
+}
+#input, #output, textarea::placeholder
+{
+  color: black;
+}

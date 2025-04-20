@@ -1,4 +1,5 @@
 const fs = require("fs");
+const fetch = require('node-fetch');
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const path = require("path");
@@ -145,6 +146,46 @@ app.get("/Notatnik", (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'frontend','private','notatnik.html'));
 });
 
+app.get("/Tlumacz", (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'frontend','private','tlumacz.html'));
+});
+
+app.post("/tlumaczenie", async (req, res) => {
+  const { text } = req.body;
+
+  try{
+    const response = await fetch('http://127.0.0.1:1234/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          model: "nous-hermes-2-mistral-7b-dpo",
+          messages: [
+              {
+                  role: "user",
+                  content: `Translate the following to English. Only return the translated sentence, no comments or explanation:\n"${text}"`
+              }
+          ],
+          temperature: 0.2,
+          max_tokens: 512
+      })
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+      return res.status(500).json({ error: data });
+  }
+
+  const translated = data.choices[0].message.content.trim().replace(/^"|"$/g, '');
+  console.log(translated);
+  res.json({ translated });
+  } catch (error) {
+    console.error('Błąd:', error);
+    res.status(500).json({ error: 'Błąd tłumaczenia' });
+  }
+});
 
 
 
